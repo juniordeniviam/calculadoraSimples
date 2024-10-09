@@ -1,6 +1,7 @@
 ﻿using System;
+using Calculadora.Calculadora;
 
-namespace Calculadora
+namespace Calculadora.Program
 {
     class Program
     {
@@ -33,25 +34,26 @@ namespace Calculadora
 
                 // Executar a operação escolhida
                 double resultado = 0;
+                CalculadoraSimples calc = new CalculadoraSimples();
 
                 switch (opcao)
                 {
                     case "1":
-                        resultado = Adicionar(numero1, numero2);
+                        resultado = calc.Adicionar(numero1, numero2);
                         Console.WriteLine($"Resultado: {numero1} + {numero2} = {resultado}");
                         break;
                     case "2":
-                        resultado = Subtrair(numero1, numero2);
+                        resultado = calc.Subtrair(numero1, numero2);
                         Console.WriteLine($"Resultado: {numero1} - {numero2} = {resultado}");
                         break;
                     case "3":
-                        resultado = Multiplicar(numero1, numero2);
+                        resultado = calc.Multiplicar(numero1, numero2);
                         Console.WriteLine($"Resultado: {numero1} * {numero2} = {resultado}");
                         break;
                     case "4":
                         if (numero2 != 0)
                         {
-                            resultado = Dividir(numero1, numero2);
+                            resultado = calc.Dividir(numero1, numero2);
                             Console.WriteLine($"Resultado: {numero1} / {numero2} = {resultado}");
                         }
                         else
@@ -64,26 +66,6 @@ namespace Calculadora
                         break;
                 }
             }
-        }
-
-        static double Adicionar(double a, double b)
-        {
-            return a + b;
-        }
-
-        static double Subtrair(double a, double b)
-        {
-            return a - b;
-        }
-
-        static double Multiplicar(double a, double b)
-        {
-            return a * b;
-        }
-
-        static double Dividir(double a, double b)
-        {
-            return a / b;
         }
 
         static double LerNumero(string mensagem)
